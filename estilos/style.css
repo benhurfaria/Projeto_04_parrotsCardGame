@@ -1,0 +1,19 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    background-color: #E5E5E5;
+    color:#75B79E;
+    font-size: 56px;
+    line-height: 66px;
+    letter-spacing: -0.004em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1{
+    height: 68px;
+    width: 541px;
+    margin-top: 40px
+}
