@@ -2,6 +2,7 @@ let quantidadeCartas = Number(prompt("Digite a quantidade de cartas"));
 let cartasViradas = [];
 let cartasViradasFiltradas = [];
 let gifs = [];
+let vetBool = [];
 let cartaVirada = 0;
 let jogadaAnterior = 999;
 
@@ -29,6 +30,9 @@ function verificadorDaQuantidadeCartas() {
         cartasViradas.push(gifs[i]);
         i++;
     }
+    for (let j = 0; j < quantidadeCartas; j++) {
+        vetBool.push(false);
+    }
 
     cartasViradas.sort(comparador);
 
@@ -54,6 +58,8 @@ function comparador() {
 carregarPagina();
 
 function virarCarta(elemento, identificador) {
+
+
     const li = document.querySelectorAll("li");
     let bool1 = false;
     elemento.classList.add("normal");
@@ -68,28 +74,33 @@ function virarCarta(elemento, identificador) {
     let turnCard = cartaVirada;
     let catchPlay = jogadaAnterior;
 
-    if (turnCard === 1) {
-        console.log(bool1 + " antes setTimeOut " + turnCard);
+    if (bool1 === false && turnCard === 1) {
+        
         setTimeout(function () {
-            console.log("oi Dentro");
-            console.log(bool1 + " Dentro setTimeOut " + turnCard);
-            if (bool1 === false && turnCard == 1) {
-                console.log("OI DENTRO IF");
-                elemento.classList.remove("normal");
-                elemento.innerHTML = `<img src="assets/front.png"/>`;
-                li[catchPlay].classList.remove("normal");
-                li[catchPlay].innerHTML = `<img src="assets/front.png"/>`;
-                cartaVirada = 0;
-            }
-            
+            elemento.classList.remove("normal");
+            elemento.innerHTML = `<img src="assets/front.png"/>`;
+            li[catchPlay].classList.remove("normal");
+            li[catchPlay].innerHTML = `<img src="assets/front.png"/>`;
+            cartaVirada = 0;
         }, 1000);
+
+    } else {
+        vetBool[catchPlay] = true;
+        vetBool[identificador] = true;
+        
     }
-    
+
+
+
+
 
     jogadaAnterior = identificador;
     cartaVirada++;
-    console.log("oiiiii");
+    
     if (cartaVirada === 2) {
         cartaVirada = 0;
     }
+    
+
+
 }
