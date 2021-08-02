@@ -68,29 +68,23 @@ function virarCarta(elemento, identificador) {
     let turnCard = cartaVirada;
     let catchPlay = jogadaAnterior;
 
-    if (jogadaAnterior !== 999) {
-        console.log(bool1 + "antes setTimeOut" + turnCard);
+    if (turnCard === 1) {
+        console.log(bool1 + " antes setTimeOut " + turnCard);
         setTimeout(function () {
             console.log("oi Dentro");
-            console.log(bool1 + "Dentro setTimeOut" + turnCard);
+            console.log(bool1 + " Dentro setTimeOut " + turnCard);
             if (bool1 === false && turnCard == 1) {
                 console.log("OI DENTRO IF");
                 elemento.classList.remove("normal");
                 elemento.innerHTML = `<img src="assets/front.png"/>`;
                 li[catchPlay].classList.remove("normal");
                 li[catchPlay].innerHTML = `<img src="assets/front.png"/>`;
-                cartaVirada = -1;
+                cartaVirada = 0;
             }
             
         }, 1000);
     }
-    /*if(bool1 === false && cartaVirada == 1){
-        elemento.classList.remove("normal");
-        elemento.innerHTML = `<img src="assets/front.png"/>`;
-        li[jogadaAnterior].classList.remove("normal");
-        li[jogadaAnterior].innerHTML = `<img src="assets/front.png"/>`
-        cartaVirada = -1;
-    } */
+    
 
     jogadaAnterior = identificador;
     cartaVirada++;
